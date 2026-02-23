@@ -16,5 +16,4 @@ target_link_libraries(simple
 	X11-xcb
 	cairo
 	pthread
-	udev
 )

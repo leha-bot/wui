@@ -13,11 +13,18 @@ file(GLOB SOURCES
 	window/*.cpp)
 
 find_package(PkgConfig REQUIRED)
+
 pkg_check_modules(CAIRO REQUIRED cairo)
+# libudev-zero is a drop-in lib for some distros
+pkg_check_modules(udev IMPORTED_TARGET libudev udev libudev-zero)
 
 include_directories(.
 	../thirdparty
 	PUBLIC ${CAIRO_INCLUDE_DIRS})
 
 add_library(wui STATIC ${SOURCES})
+if(udev_FOUND)
+    target_compile_definitions(wui PRIVATE HAVE_LIBUDEV=1)
+    target_link_libraries(wui PUBLIC PkgConfig::udev)
+endif()
 

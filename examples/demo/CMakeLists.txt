@@ -21,5 +21,4 @@ target_link_libraries(demo
 	stdc++fs
 	cairo
 	pthread
-	udev
 )

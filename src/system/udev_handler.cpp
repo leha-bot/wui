@@ -11,7 +11,9 @@
 
 #include <string>
 
+#ifdef HAVE_LIBUDEV
 #include <libudev.h>
+#endif
 
 #include <string.h>
 
@@ -60,6 +62,7 @@ void send_event(device_type dt, system_event_type et, std::function<void(const e
     callback(ev_);
 }
 
+#ifdef HAVE_LIBUDEV
 void handle_device(struct udev_device *dev, std::function<void(const event &ev)> callback)
 {
     const char *action  = udev_device_get_action(dev);
@@ -128,5 +131,12 @@ void udev_handler::process()
 
     udev_unref(udev);
 }
+#else
+// noop
+//
+void handle_device(struct udev_device *dev, std::function<void(const event &ev)> callback) {}
+
+void udev_handler::process() {}
+#endif
 
 }
