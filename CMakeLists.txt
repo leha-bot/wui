@@ -4,7 +4,12 @@ project (wui LANGUAGES CXX C)
 
 set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
+
+option(wui_USE_STATIC_STDLIB "Use static C++ stdlib (GCC/libstdc++ only)" OFF)
+
+if(wui_USE_STATIC_STDLIB)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
+endif()
 
 set(CMAKE_MAKE_PROGRAM "make -j 3")
 
