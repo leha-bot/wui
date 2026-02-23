@@ -11,7 +11,7 @@
 
 #include <wui/window/window.hpp>
 
-#include <utf8/utf8.h>
+#include <utf8cpp/utf8.h>
 
 #include <boost/nowide/convert.hpp>
 

@@ -22,7 +22,7 @@
 #include <wui/common/flag_helpers.hpp>
 
 #include <boost/nowide/convert.hpp>
-#include <utf8/utf8.h>
+#include <utf8cpp/utf8.h>
 
 #include <regex>
 #include <cctype>
