@@ -6,6 +6,7 @@ set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_CXX_STANDARD 17)
 
 option(wui_USE_STATIC_STDLIB "Use static C++ stdlib (GCC/libstdc++ only)" OFF)
+option(wui_USE_BUNDLED_LIBS "Use bundled libs from thirdparty/ dir" OFF)
 
 if(wui_USE_STATIC_STDLIB)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
