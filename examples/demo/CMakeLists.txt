@@ -18,5 +18,4 @@ target_link_libraries(demo
 	xcb-image
 	X11
 	X11-xcb
-	pthread
 )

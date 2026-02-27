@@ -18,6 +18,7 @@ pkg_check_modules(cairo REQUIRED IMPORTED_TARGET cairo)
 # libudev-zero is a drop-in lib for some distros
 pkg_check_modules(udev IMPORTED_TARGET libudev udev libudev-zero)
 
+find_package(Threads REQUIRED)
 
 add_library(wui STATIC ${SOURCES})
 
@@ -42,3 +43,4 @@ if(udev_FOUND)
 endif()
 target_link_libraries(wui PUBLIC PkgConfig::cairo)
 
+target_link_libraries(wui PUBLIC Threads::Threads)

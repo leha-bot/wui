@@ -15,5 +15,4 @@ target_link_libraries(hello_world
 	xcb-image
 	X11
 	X11-xcb
-	pthread
 )

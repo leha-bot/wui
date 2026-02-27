@@ -14,5 +14,4 @@ target_link_libraries(simple
 	xcb-image
 	X11
 	X11-xcb
-	pthread
 )
