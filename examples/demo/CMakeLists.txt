@@ -18,7 +18,6 @@ target_link_libraries(demo
 	xcb-image
 	X11
 	X11-xcb
-	stdc++fs
 	cairo
 	pthread
 )
