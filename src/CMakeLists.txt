@@ -20,6 +20,15 @@ pkg_check_modules(udev IMPORTED_TARGET libudev udev libudev-zero)
 
 find_package(Threads REQUIRED)
 
+find_package(X11 REQUIRED COMPONENTS
+    xcb
+    xcb_cursor
+    X11_xcb
+    xcb_ewmh
+    xcb_image
+    xcb_icccm
+)
+
 add_library(wui STATIC ${SOURCES})
 
 # external thirdparty
@@ -44,3 +53,13 @@ endif()
 target_link_libraries(wui PUBLIC PkgConfig::cairo)
 
 target_link_libraries(wui PUBLIC Threads::Threads)
+
+target_link_libraries(wui PUBLIC
+    X11::X11
+    X11::xcb
+    X11::xcb_cursor
+    X11::X11_xcb
+    X11::xcb_ewmh
+    X11::xcb_image
+    X11::xcb_icccm
+)
